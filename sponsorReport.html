@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Report</title>
+    <style>
+        /* Add your styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sponsor Report for {{ email }}</h1>
+
+    <h2>Your Campaigns</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Campaign Name</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Budget</th>
+                <th>Visibility</th>
+                <th>Goals</th>
+                <th>Niche</th>
+                <th>Percentage Complete</th> 
+                <th>Budget Left</th><!-- New Column -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for campaign in campaigns %}
+                <tr>
+                    <td>{{ campaign.name }}</td>
+                    <td>{{ campaign.description }}</td>
+                    <td>{{ campaign.start_date }}</td>
+                    <td>{{ campaign.end_date }}</td>
+                    <td>{{ campaign.budget }}</td>
+                    <td>{{ campaign.visibility }}</td>
+                    <td>{{ campaign.goals }}</td>
+                    <td>{{ campaign.niche }}</td>
+                    <td>{{ campaign.percentage_complete }}%</td> <!-- Display Percentage -->
+                    <td>{{campaign.budget_left}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
